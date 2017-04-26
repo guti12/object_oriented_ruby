@@ -13,9 +13,9 @@ class Store
 	attr_writer :price
 
 	def initialize(input_options)
-		@color = input_options [:color]
-		@price = input_options [:price]
-		@size = input_options [:size]
+		@color = input_options[:color]
+		@price = input_options[:price]
+		@size = input_options[:size]
 	end
 
 	# def color
@@ -38,14 +38,29 @@ class Store
 		puts "The color of the item is #{color}. The price is #{price} and the size is #{size}"
 	end
 
+
 		
+end
+
+class Food < Store
+	attr_reader :shelf_life
+	def initialize (input_options)
+		super(input_options)
+		@shelf_life = input_options[:shelf_life]
 	end
+end
 
 shoes = Store.new(color: "blue",
 									price: 50, 
-									size: 10)
+									size: 10
+									)
+
+bananas = Food.new(
+									color: "yellow",
+									price: 1,
+									size: 5,
+									shelf_life: 7)
 
 puts shoes.price
 puts shoes.print_info
-
-
+puts bananas.shelf_life
